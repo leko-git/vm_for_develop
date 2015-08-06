@@ -24,6 +24,13 @@
 - name: Устанаваливаем Composer
   get_url: url=https://getcomposer.org/composer.phar dest=/usr/local/bin/composer mode=0755 validate_certs=no
 
+- name: add GitHub Auth token
+  shell: composer config -g github-oauth.github.com {{ github_oauth_token }}
+  when: github_oauth_token is defined
+
+- name: Устанаваливаем Composer Asset Plugin
+  shell: "composer global require 'fxp/composer-asset-plugin:1.0.0-beta4'"
+
 - name: Копируем pool конфиг php-fpm
   template: src=www.conf dest=/etc/php5/fpm/pool.d/
   notify: restart php-fpm
