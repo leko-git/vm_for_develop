@@ -1,0 +1,7 @@
+#playbook.yml
+---
+- hosts: all
+  sudo: true
+  tasks:
+  - name: install nginx
+    apt: name=nginx state=present
