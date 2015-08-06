@@ -1,0 +1,15 @@
+postgres_listen_addresses:
+  - '*'
+postgres_port: 5432
+
+postgres_log_destination: stderr
+postgres_syslog_facility: LOCAL0
+postgres_syslog_ident: postgres
+
+postgres_allowed_hosts:
+    -
+      address: '10.0.2.2/24'
+
+
+postgresql_owner: 'postgres'
+postgresql_password: 'postgres'

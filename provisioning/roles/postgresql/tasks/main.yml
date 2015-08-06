@@ -1,0 +1,25 @@
+---
+- name: Установка Postgres Server and Client
+  apt: pkg={{ item }} state=present
+  with_items:
+    - postgresql
+    - postgresql-client
+    - libpq-dev
+    - python-psycopg2
+
+- name: Запускаем Postgres
+  service: name=postgresql state=started enabled=true
+
+- name: конфиг postgres pg_hba
+  template: src=pg_hba.conf.j2 dest=/etc/postgresql/9.3/main/pg_hba.conf
+  notify:
+    - restart postgres
+
+- name: конфиг postgres
+  template: src=postgresql.conf.j2 dest=/etc/postgresql/9.3/main/postgresql.conf
+  notify:
+    - restart postgres
+
+
+
+- include: manage_users.yml

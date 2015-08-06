@@ -1,0 +1,7 @@
+---
+- name: Обновляем дефолтный пароль postgres
+  postgresql_user:
+    name='{{ postgresql_owner }}'
+    password='{{ postgresql_password }}'
+    state='present'
+  sudo_user: '{{ postgresql_owner }}'
