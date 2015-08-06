@@ -28,5 +28,22 @@
   template: src=www.conf dest=/etc/php5/fpm/pool.d/
   notify: restart php-fpm
 
+- name: Включаем php модули
+  shell: php5enmod {{ item }}
+  with_items:
+    - mcrypt
+  notify:
+    - restart php-fpm
+
 - name: Запуск php-fpm
   service: name=php5-fpm state=started enabled=true
+
+- name: конфиг PHP
+  template: src=php.ini dest=/etc/php5/fpm/conf.d/custom.ini
+  notify:
+    - restart php-fpm
+  tags: php
+
+- name: chown PHP-FPM sessions dir
+  shell: chown vagrant:vagrant /var/lib/php5 -Rf
+  tags: php

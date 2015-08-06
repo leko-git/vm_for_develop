@@ -2,3 +2,21 @@
   apt: pkg=nginx state=present
   notify:
     - nginx start
+
+- name: nginx.conf
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf
+  notify:
+    - nginx restart
+
+- name: Скидываем хосты nginx
+  template: src=site.conf dest=/etc/nginx/sites-available/{{ item.name }}.conf
+  with_items: vhosts
+  notify:
+    - nginx restart 
+  tags: nginx
+
+- name: Включаем хосты nginx
+  file: src=/etc/nginx/sites-available/{{ item.name }}.conf dest=/etc/nginx/sites-enabled/{{ item.name }}.conf state=link
+  with_items: vhosts
+  notify:
+    - nginx restart

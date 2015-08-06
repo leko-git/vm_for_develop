@@ -13,3 +13,18 @@ postgres_allowed_hosts:
 
 postgresql_owner: 'postgres'
 postgresql_password: 'postgres'
+
+php_error_reporting: E_ALL
+php_display_errors: On
+php_upload_max_filesize: 20M
+php_post_max_size: 25M
+
+mysql_root_user: root
+mysql_root_pass: root
+mysql_bind_address: 0.0.0.0  # Allows all connections, for Production it should be 127.0.0.1
+mysql_key_buffer: 64M
+
+vhosts:
+  [
+    { name: 'phpmyadmin.lc', server_name: 'phpmyadmin.lc', rootFolder: '/usr/share/phpmyadmin/'},
+  ]

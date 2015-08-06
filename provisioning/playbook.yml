@@ -6,6 +6,8 @@
   vars_files:
     - defaults/variables.yml
   roles:
+    - system
     - php
     - nginx
     - postgresql
+    - mysql
