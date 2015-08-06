@@ -1,0 +1,4 @@
+- name: Установка nginx
+  apt: pkg=nginx state=present
+  notify:
+    - nginx start

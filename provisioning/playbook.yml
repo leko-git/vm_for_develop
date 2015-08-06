@@ -1,7 +1,7 @@
-#playbook.yml
 ---
 - hosts: all
+  user: vagrant
   sudo: true
-  tasks:
-  - name: install nginx
-    apt: name=nginx state=present
+  roles:
+    - php
+    - nginx
