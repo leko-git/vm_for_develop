@@ -3,6 +3,8 @@
   user: vagrant
   sudo: true
   gather_facts: no
+  vars_files:
+    - defaults/variables.yml
   roles:
     - php
     - nginx
