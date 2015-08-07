@@ -20,6 +20,7 @@
     - php5-sqlite
     - php-apc
     - php-pear
+    - php5-pgsql
 
 - name: Устанаваливаем Composer
   get_url: url=https://getcomposer.org/composer.phar dest=/usr/local/bin/composer mode=0755 validate_certs=no
