@@ -3,3 +3,13 @@
   with_items:
     - htop
     - nmap
+    - ntp
+    - mc
+    - htop
+    - iotop
+    - iftop
+    - atop
+    - wget
+    - curl
+    - git
+    - language-pack-ru

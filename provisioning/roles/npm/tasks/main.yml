@@ -1,0 +1,27 @@
+- include: upstream.yml
+  when: nodejs_upstream is defined
+
+- name: Установка NodeJS пакетов
+  apt: pkg={{ item }} state=latest install_recommends=no
+  with_items: nodejs_packages
+
+  # This will be replaced by a .deb package in the future
+- name: Установка npm
+  shell: curl https://www.npmjs.com/install.sh | bash creates=/usr/bin/npm
+  when: nodejs_upstream is not defined
+
+- name: Get npm global temporary directory
+  command: npm -g config get tmp
+  register: nodejs_npm_tempdir
+  changed_when: False
+
+- name: Set npm global temporary directory to /tmp
+  command: npm -g config set tmp /tmp
+  when: nodejs_npm_tempdir.stdout != '/tmp'
+
+- name: install the latest npm global packages
+  npm:
+    name: '{{ item }}'
+    state: latest
+    global: yes
+  with_items: nodejs_npm_packages
