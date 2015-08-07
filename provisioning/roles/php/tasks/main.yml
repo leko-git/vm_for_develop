@@ -30,7 +30,7 @@
   when: github_oauth_token is defined
 
 - name: Устанаваливаем Composer Asset Plugin
-  shell: "composer global require 'fxp/composer-asset-plugin:1.0.0-beta4'"
+  shell: "composer global require 'fxp/composer-asset-plugin:1.0.0-beta3'"
 
 - name: Копируем pool конфиг php-fpm
   template: src=www.conf dest=/etc/php5/fpm/pool.d/
