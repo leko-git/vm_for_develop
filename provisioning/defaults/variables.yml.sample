@@ -15,6 +15,7 @@ postgres_allowed_hosts:
 
 postgresql_owner: 'postgres'
 postgresql_password: 'postgres'
+postgres_datestyle: 'iso, dmy'
 
 php_error_reporting: E_ALL
 php_display_errors: On
