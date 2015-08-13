@@ -1,0 +1,29 @@
+---
+# Mailcatcher
+
+- name: MailCatcher | MailUtils
+  apt: pkg=mailutils state=latest
+
+- name: MailCatcher | sqlite3
+  apt: pkg=sqlite3 state=latest
+
+- name: MailCatcher | libsqlite3-dev
+  apt: pkg=libsqlite3-dev state=latest
+
+- name: MailCatcher | Install Ruby 2.0-dev
+  apt: pkg=ruby2.0-dev state=installed
+
+- name: MailCatcher | Install MailCatcher
+  action: command gem install mailcatcher creates=/usr/local/bin/mailcatcher
+
+- name: MailCatcher | Configure PHP.ini
+  command: sed -ir "s/;\?sendmail_path =.*/sendmail_path = \/usr\/bin\/env \/usr\/local\/bin\/catchmail/" /etc/php5/fpm/php.ini
+  command: sed -ir "s/;\?sendmail_path =.*/sendmail_path = \/usr\/bin\/env \/usr\/local\/bin\/catchmail/" /etc/php5/cli/php.ini
+  notify:
+    - restart php-fpm
+
+- name: MailCatcher | Configure Autostart
+  template: src=../files/mailcatcher_upstart.conf dest=/etc/init/mailcatcher.conf
+
+- name: MailCatcher | Start MailCatcher
+  command: mailcatcher --ip=0.0.0.0

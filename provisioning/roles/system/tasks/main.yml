@@ -14,6 +14,8 @@
     - git
     - imagemagick
     - libmagickwand-dev
+    - build-essential
+    - ruby-dev
 
 - name: ensure NTP is installed
   apt: pkg=ntp state=installed
