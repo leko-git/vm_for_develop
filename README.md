@@ -1,1 +1,11 @@
 Виртуальная машина на основе Vagrant + Ansible
+ -  npm
+  - php
+  - phpredis
+  - redis
+  - gearman
+  - php-pecl
+  - memcached
+  - postgresql
+  - mysql
+  - nginx
