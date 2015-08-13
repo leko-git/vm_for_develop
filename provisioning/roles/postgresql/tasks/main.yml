@@ -5,6 +5,7 @@
     - postgresql
     - postgresql-client
     - libpq-dev
+    - postgresql-contrib
     - python-psycopg2
 
 - name: Запускаем Postgres

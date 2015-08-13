@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Pierre Buyle, geerlingguy
+  description: PHP PECL extension installation.
+  company: "Pheromone"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.4
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  categories:
+    - development
+    - web

@@ -6,7 +6,7 @@ Vagrant.configure(2) do |config|
 
   # Настройки предоставления
   config.vm.provision :shell, :path => "provisioning/provision.sh"
-  
+
   # Задаем ip адрес в сети
   config.vm.network :private_network, ip: "10.10.10.10"
 

@@ -7,8 +7,13 @@
     - defaults/variables.yml
   roles:
     - system
+    - npm
     - php
-    - nginx
+    - phpredis
+    - redis
+    - gearman
+    - php-pecl
+    - memcached
     - postgresql
     - mysql
-    - npm
+    - nginx

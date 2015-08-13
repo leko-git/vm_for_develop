@@ -1,0 +1,4 @@
+- name: Устанаваливаем redis
+  apt: pkg={{ item }} state=present
+  with_items:
+    - redis-server

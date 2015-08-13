@@ -1,0 +1,17 @@
+- name: install gearman job server.
+  apt: pkg=gearman-job-server state=latest
+
+- name: install libgearman library
+  apt: pkg=libgearman7 state=latest
+
+- name: install libgearman library headers
+  apt: pkg=libgearman-dev state=latest
+
+- name: configure gearman to run at system start
+  action: command /usr/sbin/update-rc.d gearman-job-server defaults
+
+- name: configure gearman to run at system start
+  action: command /usr/sbin/update-rc.d gearman-job-server enable
+
+- name: start gearman job server
+  action: service name=gearman-job-server state=started
