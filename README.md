@@ -1,5 +1,6 @@
 Виртуальная машина Ubuntu 14.04
 (Vagrant + Ansible)
+ - system
  - npm
  - php
  - phpredis
