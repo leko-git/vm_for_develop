@@ -1,0 +1,2 @@
+- name: Устанаваливаем supervisor
+  apt: pkg=supervisor state=present

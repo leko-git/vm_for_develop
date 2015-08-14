@@ -12,3 +12,4 @@
  - postgresql
  - mysql
  - nginx
+ - supervisor
