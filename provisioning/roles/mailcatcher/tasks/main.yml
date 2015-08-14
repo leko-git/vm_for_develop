@@ -26,4 +26,4 @@
   template: src=../files/mailcatcher_upstart.conf dest=/etc/init/mailcatcher.conf
 
 - name: MailCatcher | Start MailCatcher
-  command: mailcatcher --ip=0.0.0.0
+  service: name=memcached state=started

@@ -4,6 +4,11 @@ Vagrant.configure(2) do |config|
   # Название linux бокса
   config.vm.box = "ubuntu/trusty64"
 
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+    v.cpus = 2
+  end
+
   # Настройки предоставления
   config.vm.provision :shell, :path => "provisioning/provision.sh"
 

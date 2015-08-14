@@ -479,7 +479,7 @@ log_line_prefix = '%t '     # special values:
 
 # - Locale and Formatting -
 
-datestyle = {{ postgres_datestyle | default('iso, mdy') }}
+datestyle = '{{ postgres_datestyle | default('iso, mdy') }}'
 #intervalstyle = 'postgres'
 #timezone = '(defaults to server environment setting)'
 #timezone_abbreviations = 'Default'     # Select the set of available time zone
