@@ -7,6 +7,7 @@
  - gearman
  - php-pecl
  - memcached
+ - mailcatcher
  - postgresql
  - mysql
  - nginx
