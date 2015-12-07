@@ -33,7 +33,7 @@ vhosts:
     { name: 'phpmyadmin.lc', server_name: 'phpmyadmin.lc', rootFolder: '/usr/share/phpmyadmin/'},
   ]
 
-github_oauth_token: 'cdcab1db135aca709e3d7eea9801aaca2e183821'
+github_oauth_token: ''
 
 
 # List of packags to install
